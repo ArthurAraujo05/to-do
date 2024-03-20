@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const taskInput = document.getElementById('new-task');
   const taskList = document.getElementById('tasks');
 
-  // Adicionar tarefa
   form.addEventListener('submit', addTask);
 
   function addTask(e) {
@@ -12,21 +11,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const li = document.createElement('li');
       li.className = 'task-item';
-      li.innerHTML = `<span>${taskInput.value}</span><button class="delete">X</button>`;
+      li.innerHTML = `<span>${taskInput.value}</span>
+                        <button class="delete-btn"><i class="li-trash"></i></button> 
+                        <button class="check-btn"><i class="li-check"></i></button> `;
 
-      // Adicionar botão de exclusão a tarefa
-      const deleteBtn = li.querySelector('.delete');
-      deleteBtn.addEventListener('click', removeTask);
+      const deleteBtn = li.querySelector('.delete-btn');
+      deleteBtn.addEventListener('click', function() {
+        removeTask(li);
+      });
 
-      // Adicionar tarefa à lista
+      const checkBtn = li.querySelector('.check-btn');
+      checkBtn.addEventListener('click', function() {
+        toggleDone(li);
+      });
+
       taskList.appendChild(li);
 
-      // Limpar campo de entrada
       taskInput.value = '';
   }
 
-  // Remover tarefa
-  function removeTask(e) {
-      e.target.parentElement.remove();
+  function removeTask(task) {
+    task.remove();
+  }
+
+  function toggleDone(task) {
+    task.classList.toggle('done');
   }
 });
+
+

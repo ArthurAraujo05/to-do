@@ -79,14 +79,26 @@ h1 {
   opacity: 0.5; 
 }
 
-.delete-btn,
 .check-btn {
   background-color: #4CAF50; 
   color: white; 
   border: none; 
   border-radius: 5px; 
   padding: 10px; 
+  margin-left: 2px;
   cursor: pointer; 
+  height: 10px;
+}
+
+.delete-btn {
+  background-color: #ff0000; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px; 
+  margin-left: 2px;
+  cursor: pointer; 
+  height: 10px;
 }
 
 .delete-btn:hover,

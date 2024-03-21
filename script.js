@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const li = document.createElement('li');
       li.className = 'task-item';
       li.innerHTML = `<span>${taskInput.value}</span>
-                        <button class="delete-btn"><i class="li-trash"></i></button> 
-                        <button class="check-btn"><i class="li-check"></i></button> `;
+                      <button class="delete-btn"><i class="li-trash"></i></button>
+                      <button class="check-btn"><i class="li-check"></i></button>`;
 
       const deleteBtn = li.querySelector('.delete-btn');
       deleteBtn.addEventListener('click', function() {
@@ -25,18 +25,26 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleDone(li);
       });
 
-      taskList.appendChild(li);
+
+      if (li.classList.contains('done')) {
+        taskList.appendChild(li);
+      } else {
+        taskList.insertBefore(li, taskList.firstChild);
+      }
+
 
       taskInput.value = '';
   }
+
 
   function removeTask(task) {
     task.remove();
   }
 
+
   function toggleDone(task) {
     task.classList.toggle('done');
+
+    taskList.appendChild(task);
   }
 });
-
-

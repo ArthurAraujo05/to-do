@@ -1,5 +1,16 @@
 {
+  "name": "to-do",
+  "version": "1.0.0",
+  "description": "Este é um simples aplicativo de lista de tarefas (to-do list) desenvolvido em HTML, CSS e JavaScript. Ele permite que os usuários adicionem tarefas, marquem como concluídas e excluam tarefas da lista.",
+  "main": "script.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "author": "ArthurAraujo",
+  "license": "ISC",
   "dependencies": {
-    "lucide": "^0.359.0"
+    "body-parser": "^1.20.2",
+    "express": "^4.19.1",
+    "mongoose": "^8.2.3"
   }
 }
